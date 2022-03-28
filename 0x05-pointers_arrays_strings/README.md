@@ -1,1 +1,1 @@
-learning pointers, arrays and strings in C
+learning pointers, arrays and strings
