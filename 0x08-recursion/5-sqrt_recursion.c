@@ -1,38 +1,30 @@
 #include "main.h"
-/**
-*sqtRecursive - computes square root recursively doing binary search
-*@start: inital number
-*@end: last number within the limit of number
-*@m: given number
-*Return: 1 if not found sqrroot, else sqrroot
-**/
-int sqtRecursive(int start, int end, int m)
-{
-long mid;
+#include <stddef.h>
 
-if (end >= start)
-{
-mid = start + (end - start) / 2;
-if (mid * mid == m)
-return (mid);
-/*following binary search */
-if (mid * mid > m)
-return (sqtRecursive(start, mid - 1, m));
-if (mid * mid < m)
-return (sqtRecursive(mid + 1, end, m));
-}
-return (-1);
-}
 /**
-*_sqrt_recursion - finds the natural square root of a number
-*@n: given number
-*Return: square root of n or -1
-**/
+*do_sqrt_recursion - needs the extra parameter r to work
+*@n: the natural number whose root to find
+*@r: the root iterator
+*Return: the natural root of n or -1 if not found
+*/
+int do_sqrt_recursion(int n, int r)
+{
+if (r * r == n)
+return (r);
+else if (r * r > n)
+return (-1);
+return (do_sqrt_recursion(n, r + 1));
+}
+
+/**
+*_sqrt_recursion - returns the square root of x
+*@n: the number to root
+*Return: the integer result, -1 on error
+*/
 int _sqrt_recursion(int n)
 {
 if (n < 0)
 return (-1);
-if (n == 0 || n == 1)
-return (n);
-return (sqtRecursive(2, n, n));
+
+return (do_sqrt_recursion(n, 0));
 }
