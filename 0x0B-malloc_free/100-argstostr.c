@@ -1,4 +1,5 @@
-#include "main.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
 * _strlen - find length of a string
@@ -15,94 +16,36 @@ return (size);
 }
 
 /**
-* *str_concat - concatenates two strings
-* @s1: string 1
-* @s2: string 2
-* Return: pointer
+* *argstostr - description
+* @ac: int
+* @av: arguments
+* Return: string
 */
 
-char *str_addChar (char *str, char c)
+char *argstostr(int ac, char **av)
 {
-int size, i;
-char *m;
+int i = 0, nc = 0, j = 0, cmpt = 0;
+char *s;
 
-size = _strlen(str);
+if (ac == 0 || av == NULL)
+return (NULL);
 
-m = malloc((size + 1) * sizeof(char) + 1);
-if (m == 0)
-return (0);
+for (; i < ac; i++, nc++)
+nc += _strlen(av[i]);
 
-for (i = 0; i <= size; i++)
-m[i] = str[i];
+s = malloc(sizeof(char) * nc + 1);
+if (s == 0)
+return (NULL);
 
-m[i + 1] = c;
-m[i + 2] = '\0';
-
-return (m);
-}
-
-/**
-* *nbr_spaces - return the number of occurent of a string
-* @s: string to check
-* Return: int
-*/
-
-unsigned int nbr_spaces(char *s)
+for (i = 0; i < ac; i++)
 {
-int i, cmpt = 0;
+for (j = 0; av[i][j] != '\0'; j++, cmpt++)
+s[cmpt] = av[i][j];
 
-for (i = 0; s[i + 1] != '\0'; i++)
-{
-if (s[i]  == ' ' && s[i + 1] != ' ')
+s[cmpt] = '\n';
 cmpt++;
 }
+s[cmpt] = '\0';
 
-return (cmpt + 1);
-}
-
-/**
-*strtow - split a sentence into multiple words.
-*@str: the string passed as argument.
-*Return: tokens
-*/
-char **strtow(char *str)
-{
-int i;
-int spaces = nbr_spaces(str);
-char **tokens = NULL;//malloc(sizeof(char *) * (spaces));
-char *token;
-int checkingSpace = 0;
-int word = 0;
-
-if (!tokens)
-{
-printf("Failed");
-return (0);
-}
-
-printf("looping");
-for (i = 0; str[i] != '\0'; i++)
-{
-if (str[i] == ' ')
-{
-if (checkingSpace == 0)
-{
-word++;
-checkingSpace = 1;
-} 
-}
-else
-{
-printf("1");
-token = tokens[word];
-free(tokens[word]);
-str_addChar(token, str[i]);
-checkingSpace = 0;
-}
-
-}
-
-tokens[i] = NULL;
-
-return (tokens);
+return (s);
 }
