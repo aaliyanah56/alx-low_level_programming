@@ -22,7 +22,8 @@ free(p_dog);
 return (NULL);
 }
 
-for (lname = 0; name[lname]; lname++);
+for (lname = 0; name[lname]; lname++)
+;
 
 for (lowner = 0; owner[lowner]; lowner++);
 
