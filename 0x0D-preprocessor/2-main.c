@@ -7,6 +7,6 @@
 */
 int main(void)
 {
-printf("%s\n", __FILE__);
+printf("%s\n", __2-MAIN.C__);
 return (0);
 }
