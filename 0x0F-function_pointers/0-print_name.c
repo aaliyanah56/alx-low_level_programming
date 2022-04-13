@@ -9,6 +9,7 @@
 */
 void print_name(char *name, void (*f)(char *))
 {
-if (name && f)
-f(name);
+printf("my name is = %s\n", name);
+*f(name)
+return;
 }
