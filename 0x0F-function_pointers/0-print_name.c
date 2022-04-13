@@ -9,7 +9,7 @@
 */
 void print_name(char *name, void (*f)(char *))
 {
-printf("my name is = %s\n", name);
-*f(name)
+
+f(name);
 return;
 }
