@@ -1,9 +1,9 @@
 #include "function_pointers.h"
-#include <stdio.h>
+#include <stdlib.h>
 
 /**
 * print_name - prints a name.
-* @name: input nameof a persom
+* @name: input name of a persom
 * @f: function pointer.
 *
 * Return: no return.
