@@ -15,7 +15,7 @@ ptr1 = head;
 prev = head;
 while (head && ptr1 && ptr1->next)
 {
-head = head->next;
+head = ptr1->next;
 ptr1 = ptr1->next->next;
 
 if (head == ptr1)
