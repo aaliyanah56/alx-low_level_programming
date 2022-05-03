@@ -232,7 +232,6 @@ if (big_endian)
 {
 while (address_size && !*(buffer))
 --address_size, ++buffer;
-
 printf("%x", *buffer & 0xff);
 
 while (--address_size > 0)
