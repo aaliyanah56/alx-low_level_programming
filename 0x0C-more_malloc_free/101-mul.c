@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "main.h"
-#include <math.h>
 
 /**
 * is_digit - checks if a string contains a non-digit char
@@ -14,7 +13,7 @@ int is_digit(char *s)
 int i = 0;
 
 while (s[i])
-	{
+{
 if (s[i] < '0' || s[i] > '9')
 return (0);
 i++;
@@ -78,7 +77,7 @@ carry = 0;
 for (len2 = _strlen(s2) - 1; len2 >= 0; len2--)
 {
 digit2 = s2[len2] - '0';
-carry += result[len1 + len2 + 1] + (digit1 *digit2);
+carry += result[len1 + len2 + 1] + (digit1 * digit2);
 result[len1 + len2 + 1] = carry % 10;
 carry /= 10;
 }
@@ -87,7 +86,6 @@ result[len1 + len2 + 1] += carry;
 }
 for (i = 0; i < len - 1; i++)
 {
-		
 if (result[i])
 a = 1;
 if (a)
